@@ -1,0 +1,14 @@
+This bug occurs when using Tailwind CSS's `@apply` directive with custom styles that contain variables or functions.  The `@apply` directive doesn't properly resolve these values at runtime, leading to unexpected styles or no styles at all.
+
+```css
+/* styles.css */
+:root {
+  --my-color: blue;
+}
+
+.my-class {
+  @apply bg-var(--my-color);
+}
+```
+
+This will not apply the background color `blue` as expected. 
