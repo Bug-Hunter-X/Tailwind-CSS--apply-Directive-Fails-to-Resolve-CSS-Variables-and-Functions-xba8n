@@ -1,0 +1,27 @@
+To avoid this bug, do not use CSS variables or functions directly within the `@apply` directive.  Instead, define your styles directly within your Tailwind configuration file ( `tailwind.config.js` or `tailwind.config.cjs`) using `theme` or define CSS classes directly and reference them.  Advanced techniques using CSS preprocessors can handle variables and functions more effectively outside of Tailwind's `@apply` limitation.
+
+```css
+/* tailwind.config.js */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'my-blue': 'blue',
+      }
+    }
+  },
+}
+
+/* main.css */
+.my-class {
+  @apply bg-my-blue;
+}
+```
+
+Alternatively, define your styles directly in your CSS file without `@apply`:
+
+```css
+.my-class {
+  background-color: blue;
+}
+```
